@@ -9,7 +9,7 @@ import { reducer, initialState } from "./Utility/reducer";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/my-amazon-app-clone">
       <DataProvider reducer={reducer} initialState={initialState}>
         <App />
       </DataProvider>
