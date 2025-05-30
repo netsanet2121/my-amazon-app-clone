@@ -1,0 +1,92 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.container img {
+  width: 100px !important;
+}
+.container div:not(.subtotal) {
+  height: auto !important;
+}
+.cart__container {
+  padding: 20px;
+}
+.cart__container h2 .cart__container h3 {
+  padding: 10px;
+}
+.cart__container hr {
+  margin: 10px;
+}
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantityControls button {
+  background-color: var(--primary-color, #007185);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantityControls button:hover {
+  background-color: var(--primary-shade, #004f64);
+}
+
+.quantityControls span {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.subtotal {
+  padding: 20px;
+  min-width: 300px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid rgb(193, 193, 193);
+  background-color: rgb(242, 241, 241);
+  border-radius: 5px;
+}
+.subtotal a {
+  text-align: center;
+  width: 100%;
+  border: none;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+}
+.subtotal a:hover {
+  background: var(--primary-color);
+}
+.subtotal > div,
+.subtotal span {
+  display: flex;
+  gap: 20px;
+}
+@media screen and (max-width: 968px) {
+  .container {
+    flex-direction: column;
+    order: 1;
+  }
+}

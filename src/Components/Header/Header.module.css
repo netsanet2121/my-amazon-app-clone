@@ -1,0 +1,162 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.fixed {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+/* Main Header Container */
+.header__container {
+  background-color: #131921;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: white;
+  height: 70px;
+}
+
+/* Logo */
+.logo__container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo__container img {
+  width: 100px;
+}
+
+/* Delivery Section */
+.delivery {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: lightgray;
+  margin-left: 10px;
+}
+
+.delivery p {
+  font-size: 10px;
+  margin: 0;
+}
+
+.delivery span {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Search Bar */
+.search {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 600px;
+  margin: 0 20px;
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.search select,
+.search input {
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
+
+.search input {
+  flex: 1;
+}
+
+.search__icon {
+  background-color: #febd69;
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border-radius: 4px;
+}
+
+.search__icon:hover {
+  background-color: #f3a847;
+}
+
+/* Navigation & Orders */
+.order__container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.order__container a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+/* Language Dropdown */
+.language {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.language img {
+  width: 20px;
+  height: auto;
+}
+
+.language select {
+  background-color: #1a1a1a;
+  border: none;
+  color: white;
+  font-size: 14px;
+}
+
+/* Cart */
+.cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cart__count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #f08804;
+  color: white;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 12px;
+  pointer-events: none;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order__container a:hover,
+.delivery:hover,
+.logo__container a:hover,
+.lower__container u1 li :hover {
+  border: 1px solid white;
+  border-radius: 3px;
+}

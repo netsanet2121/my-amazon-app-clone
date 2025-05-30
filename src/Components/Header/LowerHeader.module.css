@@ -1,0 +1,81 @@
+.lowerHeader {
+  background-color: #232f3e;
+  padding: 10px 20px;
+  color: white;
+}
+.navList {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+.navList li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+.navList li a:hover {
+  color: #febd69;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* Sidebar styling */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  height: 100%;
+  width: 260px;
+  background-color: #fff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  color: black;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  padding: 20px;
+}
+.open {
+  left: 0;
+}
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.sidebarHeader h3 {
+  font-size: 18px;
+}
+.sidebarLinks {
+  list-style: none;
+  padding: 0;
+}
+.sidebarLinks li {
+  margin-bottom: 15px;
+}
+.sidebarLinks a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  font-size: 15px;
+}
+.sidebarLinks a:hover {
+  color: #007185;
+}
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
