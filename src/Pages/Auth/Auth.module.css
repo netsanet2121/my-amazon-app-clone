@@ -1,0 +1,115 @@
+.auth {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px 35px;
+  background-color: #fff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.logo img {
+  width: 150px;
+  margin-bottom: 25px;
+  user-select: none;
+}
+
+/* .logo img:hover {
+  opacity: 0.9;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+} */
+.form {
+  margin-top: 25px;
+  text-align: left;
+}
+
+.signInTitle {
+  font-weight: 700;
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #111;
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
+form div {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 7px;
+  color: #333;
+  font-size: 15px;
+}
+
+input {
+  cursor: text;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #f08804; /* Amazon orange */
+  box-shadow: 0 0 8px rgba(240, 136, 4, 0.5);
+}
+
+.signInBtn {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #f0c14b; /* Amazon yellow */
+  border: 1px solid #a88734;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.signInBtn:hover {
+  background-color: #ddb347;
+  box-shadow: 0 4px 12px rgba(221, 179, 71, 0.5);
+}
+
+.termsText {
+  font-size: 12px;
+  color: #555;
+  margin-top: 25px;
+  line-height: 1.4;
+  font-weight: normal; /* Not bold */
+}
+
+.createAccountBtn {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #e7e9ec;
+  border: 1px solid #adb1b8;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  user-select: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  color: #111;
+}
+
+.createAccountBtn:hover {
+  background-color: #d5d9d9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

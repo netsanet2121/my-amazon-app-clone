@@ -6,9 +6,9 @@ import { BsSearch } from "react-icons/bs";
 import LowerHeader from "./LowerHeader";
 import { BiCart } from "react-icons/bi";
 import { DataContext } from "../DataProvider/DataProvider";
-
+import { auth } from "../../Utility/firebase";
 const Header = () => {
-  const [{ basket }, dispatch] = useContext(DataContext);
+  const [{ user, basket }, dispatch] = useContext(DataContext);
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
   }, 0);
@@ -43,7 +43,7 @@ const Header = () => {
         </div>
 
         <div className={classes.order__container}>
-          <Link to="#" className={classes.language}>
+          <Link to={"/"} className={classes.language}>
             <img
               src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
               alt="US Flag"
@@ -53,9 +53,20 @@ const Header = () => {
             </select>
           </Link>
 
-          <Link to="/signup">
-            <p>Sign in</p>
-            <span>Account & Lists</span>
+          <Link to="/auth">
+            <div>
+              {user ? (
+                <>
+                  <p> Hello {user?.email?.split("@")[0]}</p>
+                  <span onClick={() => auth.signOut()}>Sign Out</span>
+                </>
+              ) : (
+                <>
+                  <p>Hello, Sign In</p>
+                  <span>Account & Lists</span>
+                </>
+              )}
+            </div>
           </Link>
 
           <Link to="/orders">
