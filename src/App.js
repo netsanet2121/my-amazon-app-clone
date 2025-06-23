@@ -1,8 +1,10 @@
-import React, { useContext, useEffect } from "react";
-import Routing from "./Router/Router";
-import { DataContext } from "./Components/DataProvider/DataProvider";
+import Router from "./Router/Router";
+import "./App.css";
+import "./index.css";
 import { Type } from "./Utility/action.type";
 import { auth } from "./Utility/firebase";
+import { useContext, useEffect } from "react";
+import { DataContext } from "./Components/DataProvider/DataProvider";
 
 function App() {
   const [{ user }, dispatch] = useContext(DataContext);
@@ -10,7 +12,6 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        // console.log(authUser);
         dispatch({
           type: Type.SET_USER,
           user: authUser,
@@ -23,10 +24,9 @@ function App() {
       }
     });
   }, []);
-
   return (
     <>
-      <Routing />
+      <Router />
     </>
   );
 }

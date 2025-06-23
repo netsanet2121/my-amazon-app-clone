@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import classes from "./Auth.module.css";
 import { auth } from "../../Utility/firebase";
 import {
@@ -6,7 +6,7 @@ import {
   createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { ClipLoader } from "react-spinners";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { DataContext } from "../../Components/DataProvider/DataProvider";
 import { Type } from "../../Utility/action.type";
 
@@ -18,9 +18,10 @@ function Auth() {
     signIn: false,
     signUp: false,
   });
-  const navigate = useNavigate();
+
   const [{ user }, dispatch] = useContext(DataContext);
-  console.log(user);
+  const navigate = useNavigate();
+  const navStateData = useLocation();
 
   const authHandler = async (event) => {
     event.preventDefault();
@@ -43,17 +44,17 @@ function Auth() {
         password
       );
       setError("");
-      console.log("Signed in as:", userCredential.user.email);
-
       dispatch({
         type: Type.SET_USER,
         user: userCredential.user,
       });
       setLoading({ ...loading, signIn: false });
-      navigate("/"); // or to your dashboard or home page
+
+      // ✅ Redirect to where user was originally going (e.g. /payment)
+      navigate(navStateData?.state?.redirect || "/");
     } catch (error) {
       setError("Failed to sign in: " + error.message);
-      console.error("Sign-in error:", error);
+      setLoading({ ...loading, signIn: false });
     }
   };
 
@@ -75,15 +76,18 @@ function Auth() {
         email,
         password
       );
-      console.log("User created:", userCredential.user.email);
-      setError("User created successfully! You can now sign in.");
-      setLoading({ ...loading, signUp: false });
       dispatch({
         type: Type.SET_USER,
         user: userCredential.user,
       });
+      setError("User created successfully! You can now sign in.");
+      setLoading({ ...loading, signUp: false });
+
+      // ✅ Redirect to original destination if exists
+      navigate(navStateData?.state?.redirect || "/");
     } catch (error) {
       setError("Sign-up failed: " + error.message);
+      setLoading({ ...loading, signUp: false });
     }
   };
 
@@ -91,13 +95,30 @@ function Auth() {
     <section className={classes.auth}>
       <div className={classes.logo}>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/905px-Amazon_logo.svg.png?20250504041148"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/905px-Amazon_logo.svg.png"
           alt="Amazon Logo"
         />
       </div>
 
       <div className={classes.form}>
         <p className={classes.signInTitle}>Sign In</p>
+
+        {/* ✅ Show redirect message (e.g. "You must sign in before paying.") */}
+        {navStateData?.state?.msg && (
+          <small
+            style={{
+              padding: "5px",
+              textAlign: "center",
+              color: "red",
+              fontWeight: "bold",
+              display: "block",
+              marginBottom: "10px",
+            }}
+          >
+            {navStateData.state.msg}
+          </small>
+        )}
+
         <form onSubmit={authHandler}>
           <div>
             <label htmlFor="email">Email</label>
@@ -138,8 +159,9 @@ function Auth() {
             {loading.signIn ? <ClipLoader color="#fff" size={15} /> : "Sign In"}
           </button>
         </form>
+
         <h3 className={classes.termsText}>
-          By signing-in you agree to the AMAZON FAKE CLONE Conditions of Use &
+          By signing in you agree to the AMAZON FAKE CLONE Conditions of Use &
           Sale. Please see our Privacy Notice and our Interest-Based Ads Notice.
         </h3>
 

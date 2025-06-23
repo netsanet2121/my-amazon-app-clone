@@ -1,0 +1,104 @@
+/* Container max width and padding */
+.container {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Orders container styling */
+.orders__container {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.orders__container h2 {
+  margin-bottom: 1rem;
+}
+
+/* Filter controls styling */
+.filter__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter__controls label {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.filter__controls input,
+.filter__controls select {
+  padding: 5px;
+  font-size: 1rem;
+}
+
+/* Order item container */
+.order__item {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+/* Responsive typography */
+.order__item h3,
+.order__item p {
+  margin: 0.2rem 0;
+}
+
+/* Product image inside orders - smaller thumbnail */
+.product__image {
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Make product cards flexed but adapt on small screens */
+.product__flexed {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .product__image {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter__controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order__item {
+    font-size: 0.9rem;
+  }
+
+  .product__flexed {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product__image {
+    max-width: 80px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product__image {
+    max-width: 70px;
+  }
+}
